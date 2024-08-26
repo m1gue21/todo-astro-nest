@@ -1,0 +1,104 @@
+---
+let tasks = [
+    {
+        "id": 1,
+        "title": "Tarea 1",
+        "description": "Descripción de la Tarea 1",
+        "completed": false
+    },
+    {
+        "id": 2,
+        "title": "Tarea 2",
+        "description": "Descripción de la Tarea 2",
+        "completed": true
+    },
+    {
+        "id": 3,
+        "title": "Tarea 3",
+        "description": "Descripción de la Tarea 3",
+        "completed": false
+    }
+]
+---
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App</title>
+</head>
+
+<body class="bg-gradient-to-r from-blue-500 to-purple-600 min-h-screen flex items-center justify-center">
+    <div class="w-full max-w-4xl px-4">
+        <h1 class="text-4xl font-bold text-white text-center mb-8">Todo App</h1>
+
+        <button class="transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110
+                     hover:bg-indigo-500 duration-300 flex flex-row items-center rounded mt-2 pb-1 px-4 
+                       hover:cursor-pointer text-white">
+                <p class="rounded mr-2 text-2xl">+</p>
+                <p class="rounded pt-1 text-sm">New task</p>
+        </button>
+
+		<!-- Task Cards -->
+        <div x-data="{ tasks: [
+        { id: 1, title: 'Tarea 1', description: 'Descripción de lasssssssssss Tarea 1', completed: false },
+        { id: 2, title: 'Tarea 2', description: 'Descripción de la Tssssssssssssssssssssssssarea 2', completed: true },
+        { id: 3, title: 'Tarea 2', description: 'Descripción de la Tarea lorem ipsium dolor est amet col sin if at 2', completed: true },
+        { id: 4, title: 'Tarea 2', description: 'Descripción de la Tareasssssssssssssssssssss 2', completed: true },
+        { id: 5, title: 'Tarea 2', description: 'Descripción de la Taressssssssssssssssssssssssssa 2', completed: true },
+        { id: 6, title: 'Tarea 2', description: 'Descripción de la Tarssssssssssssssssssssssea 2', completed: true },
+        { id: 7, title: 'Tarea 3', description: 'Descripción de la Tasssssssssssssssssssssrea 3', completed: false }
+        ] }" class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
+            <!-- Iterar sobre las tareas -->
+            <template x-for="task in tasks" :key="task.id">
+                <div class="w-72 p-4 bg-white rounded-lg shadow border border-gray-200 mb-2">  
+                    <div class="px-4">
+                        <div class="flex justify-between">
+                            
+                            <span class="text-xs px-2 py-1 rounded-full" :class="task.completed ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'">
+                                <span x-text="task.completed ? 'Completed' : 'Pending'"></span>
+                            </span>
+                            <span class="flex justify-end space-x-2">
+                                <!-- Botón de editar -->
+                                <button @click="editTask(task.id)">
+                                    <img class="h-6" src="/icons/edit.svg" alt="Edit">
+                                </button>
+                                <!-- Botón de eliminar -->
+                                <button @click="deleteTask(task.id)">
+                                    <img class="h-6" src="/icons/trash-can.svg" alt="Delete">
+                                </button>
+                            </span>
+                        </div>
+                        <div class="text-center pt-3">
+                            <h1 class="text-lg font-semibold text-gray-900" x-text="task.title"></h1>
+                            <p class="text-sm text-gray-500" x-text="task.description"></p>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+        </div>
+</div>
+
+    <!-- Funciones para editar y eliminar tareas -->
+    <script is:inline>
+        function editTask(id) {
+            console.log(`Edit task with id: ${id}`);
+            // Aquí puedes añadir la lógica para mostrar un modal o redirigir a la página de edición.
+        }
+
+        function deleteTask(id) {
+            console.log(`Delete task with id: ${id}`);
+            // Aquí puedes añadir la lógica para mostrar un modal de confirmación o eliminar la tarea.
+        }
+
+        function createTask() {
+            console.log('create task');
+            // Aquí puedes añadir la lógica para mostrar un modal de confirmación o eliminar la tarea.
+        }
+
+    </script>
+</body>
+</html>
+
