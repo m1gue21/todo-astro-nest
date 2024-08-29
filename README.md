@@ -21,13 +21,15 @@
     );
     ```
 
-4. Inserta datos de ejemplo en la tabla:
+4. Inserta datos de ejemplo en la tabla y listalos:
 
     ```sql
     INSERT INTO tasks (title, description, completed) VALUES 
     ('Primera tarea', 'Descripción de la primera tarea', false),
     ('Segunda tarea', 'Descripción de la segunda tarea', false),
     ('Tercera tarea', 'Descripción de la tercera tarea', true);
+
+    SELECT * FROM tasks;
     ```
 
 ### 2. Instalación del Backend
