@@ -46,6 +46,29 @@
     npm install
     ```
 
+2. Configura usuario y contraseña de la db en el app.module.ts
+
+    ```typescript
+   @Module({
+      imports: [
+        TypeOrmModule.forRoot({
+          type: 'postgres',
+          host: 'localhost',
+          port: 5432,
+          username: 'postgres', //REEMPLAZAR
+          password: 'postgres', //REEMPLAZAR
+          database: 'todo_app',
+          entities: [Tasks],
+        }),
+        TasksModule,
+      ],
+      controllers: [],
+      providers: [],
+    })
+    export class AppModule {}
+
+    ```
+
 4. Inicia el servidor de la API:
 
     ```bash
