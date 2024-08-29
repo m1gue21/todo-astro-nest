@@ -1,4 +1,4 @@
-import { Column, Entity } from 'typeorm';
+import { Column, Entity, DeleteDateColumn } from 'typeorm';
 
 @Entity()
 export class Tasks {
@@ -14,4 +14,7 @@ export class Tasks {
 
   @Column()
   completed: boolean;
+
+  @DeleteDateColumn()
+  deletedAt: Date;
 }
